@@ -11,7 +11,7 @@ steps:
     image: beamaustralia/php:7.3.6-xdebug
     commands:
       - vendor/bin/phpunit --coverage-clover clover.xml
-      - vendor/bin/php-coveralls -v --coverage_clover clover.xml
+      - vendor/bin/php-coveralls -v --coverage_clover clover.xml --json_path coveralls.json
     environment:
       ES_HOST: elasticsearch:9200
 
