@@ -9,6 +9,7 @@ steps:
 
   - name: test
     image: beamaustralia/php:7.3.6-xdebug
+    pull: always
     commands:
       - vendor/bin/phpunit --coverage-clover clover.xml
       - vendor/bin/php-coveralls -v -x clover.xml -o coveralls.json
