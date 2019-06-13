@@ -1,5 +1,6 @@
 # Laravel microservice platform
 [![Build Status](https://cloud.drone.io/api/badges/beam-australia/platform-php/status.svg)](https://cloud.drone.io/beam-australia/platform-php)
+[![Coverage Status](https://coveralls.io/repos/github/beam-australia/platform-php/badge.svg?branch=master)](https://coveralls.io/github/beam-australia/platform-php?branch=master)
 
 ## Testing
 
