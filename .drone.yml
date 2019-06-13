@@ -1,0 +1,19 @@
+kind: pipeline
+name: default
+steps:
+
+  - name: install
+    image: beamaustralia/php:7.3.6
+    commands:
+      - composer install --prefer-dist
+
+  - name: test
+    image: beamaustralia/php:7.3.6
+    commands:
+      - vendor/bin/phpunit
+    environment:
+      ES_HOST: elasticsearch:9200
+
+services:
+  - name: elasticsearch
+    image: elasticsearch:5-alpine

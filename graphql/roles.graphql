@@ -1,0 +1,9 @@
+extend type Query {
+  roles: [Role!]! @all(model: "Beam\\Roles\\Role")
+}
+
+type Role {
+  id: ID!
+  slug: String!
+  name: String!
+}

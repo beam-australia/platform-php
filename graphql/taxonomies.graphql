@@ -1,0 +1,27 @@
+extend type Query {
+  tags: [Tag!]! @all(model: "Beam\\Taxonomies\\Tag")
+  taxonomies: [Taxonomy!]! @all(model: "Beam\\Taxonomies\\Taxonomy")
+  taxonomy(id: ID! @eq): Taxonomy @find
+  terms(taxonomy_id: ID! @where): [Term!]! @all(model: "Beam\\Taxonomies\\Term")
+}
+
+type Taxonomy {
+  id: ID!
+  slug: String!
+  name: String!
+  terms: [Term!]! @hasMany
+}
+
+type Term {
+  id: ID!
+  taxonomy_id: Int
+  parent_id: Int
+  slug: String!
+  name: String!
+}
+
+type Tag {
+  id: ID!
+  slug: String!
+  name: String!
+}
