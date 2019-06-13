@@ -1,3 +1,6 @@
+# Laravel microservice platform
+[![Build Status](https://cloud.drone.io/api/badges/beam-australia/platform-php/status.svg)](https://cloud.drone.io/beam-australia/platform-php)
+
 ## Testing
 
 There is a docker helper binary located in the `bin` directory.
