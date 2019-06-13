@@ -3,14 +3,15 @@ name: default
 steps:
 
   - name: install
-    image: beamaustralia/php:7.3.6
+    image: beamaustralia/php:7.3.6-xdebug
     commands:
       - composer install --prefer-dist
 
   - name: test
-    image: beamaustralia/php:7.3.6
+    image: beamaustralia/php:7.3.6-xdebug
     commands:
-      - vendor/bin/phpunit
+      - vendor/bin/phpunit --coverage-clover clover.xml
+      - vendor/bin/php-coveralls -v
     environment:
       ES_HOST: elasticsearch:9200
 
