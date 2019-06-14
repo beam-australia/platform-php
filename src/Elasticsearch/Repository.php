@@ -2,7 +2,7 @@
 
 namespace Beam\Elasticsearch;
 
-use Beam\Elasticsearch\Contracts\HasElasticsearch;
+use Beam\Elasticsearch\Contracts\HasClient;
 use Beam\Elasticsearch\Contracts\Indexable;
 use Beam\Elasticsearch\Hydrators\ObjectHydrator;
 use Beam\Storage\Contracts;
@@ -20,9 +20,13 @@ use ONGR\ElasticsearchDSL\Sort\FieldSort;
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
  */
-class Repository implements HasElasticsearch, Contracts\Repository, Contracts\HasCriteria, Contracts\HydratesResults
+class Repository implements
+    HasClient,
+    Contracts\Repository,
+    Contracts\HasCriteria,
+    Contracts\HydratesResults
 {
-    use ElasticsearchClient, HasCriteria, HydratesResults;
+    use HasElasticsearch, HasCriteria, HydratesResults;
 
     /**
      * Indexable model

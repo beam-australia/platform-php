@@ -10,6 +10,7 @@ use Mockery;
  * Mocks the elasticsearch client
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
+ * @codeCoverageIgnore
  */
 trait IndexableObservers
 {

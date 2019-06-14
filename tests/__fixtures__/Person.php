@@ -53,6 +53,11 @@ class Person extends  Model implements Indexable
         return $this->belongsTo(Family::class);
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function getDocumentRelations()
     {
         return ['family'];

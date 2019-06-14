@@ -5,7 +5,7 @@ namespace Tests\Roles\Integration\Models;
 use Tests\Fixtures\Person;
 use Beam\Roles\Role;
 
-class HasRolesTraitTest extends \Tests\TestCase
+class HasRolesTest extends \Tests\TestCase
 {
     protected static $roles = [
         'owner', 'barista', 'waiter', 'cleaner',

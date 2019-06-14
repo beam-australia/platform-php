@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Collection;
 /**
  * Synchronous document indexing for testing
  *
- * @auth Andrew McLagan <andrew@ethicaljobs.com.au>
+ * @author Andrew McLagan <andrew@ethicaljobs.com.au>
+ * @codeCoverageIgnore
  */
 
 class Indexer

@@ -2,9 +2,9 @@
 
 namespace Beam\Elasticsearch\Indexing;
 
-use Beam\Elasticsearch\Contracts\HasElasticsearch;
+use Beam\Elasticsearch\Contracts\HasClient;
 use Beam\Elasticsearch\Contracts\Indexable;
-use Beam\Elasticsearch\ElasticsearchClient;
+use Beam\Elasticsearch\HasElasticsearch;
 use Beam\Elasticsearch\Utilities;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Collection;
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
  */
-class Indexer implements HasElasticsearch
+class Indexer implements HasClient
 {
-    use ElasticsearchClient;
+    use HasElasticsearch;
 
     /**
      * Wait for documents to be indexed and available

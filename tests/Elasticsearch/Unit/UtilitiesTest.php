@@ -54,6 +54,16 @@ class UtilitiesTest extends TestCase
     /**
      * @test
      */
+    public function it_can_determine_if_a_model_is_not_indexable()
+    {
+        $this->assertFalse(
+            Utilities::isIndexable(new Fixtures\Post)
+        );
+    }
+
+    /**
+     * @test
+     */
     public function it_can_return_indexables()
     {
         $this->assertEquals(Utilities::getIndexables(), [
@@ -73,5 +83,22 @@ class UtilitiesTest extends TestCase
         $this->assertEquals(Utilities::config('ninjas.are.cool', ['default', 'foo']), ['default', 'foo']);
 
         $this->assertEquals(Utilities::config(), config('elasticsearch'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_plucks_errors_from_a_response()
+    {
+        // Always returns array
+        $this->assertEquals(Utilities::getResponseErrors([]), []);
+
+        // Returns errors
+        $errors = Utilities::getResponseErrors([
+            'errors' => true,
+            'items' => ['FOO','BAR'],
+        ]);
+
+        $this->assertEquals($errors, ['FOO','BAR']);
     }
 }

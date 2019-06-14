@@ -5,7 +5,7 @@ namespace Beam\Elasticsearch;
 use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
 
-trait ElasticsearchClient
+trait HasElasticsearch
 {
     /**
      * Elasticsearch client
