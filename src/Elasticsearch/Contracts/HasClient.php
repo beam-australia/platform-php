@@ -10,7 +10,8 @@ use Elasticsearch\Client;
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
  * @codeCoverageIgnore
  */
-interface HasElasticsearch
+
+interface HasClient
 {
     /**
      * Sets the elasticsearch client

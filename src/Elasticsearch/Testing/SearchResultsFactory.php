@@ -9,6 +9,7 @@ use M6Web\Component\ElasticsearchMock\Client as MockClient;
  * Mocks the elasticsearch results
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
+ * @codeCoverageIgnore
  */
 class SearchResultsFactory
 {

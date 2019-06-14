@@ -2,16 +2,16 @@
 
 namespace Beam\Elasticsearch;
 
-use Beam\Elasticsearch\Contracts\HasElasticsearch;
+use Beam\Elasticsearch\Contracts\HasClient;
 
 /**
  * Elasticsearch index manager
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
  */
-class IndexManager implements HasElasticsearch
+class IndexManager implements HasClient
 {
-    use ElasticsearchClient;
+    use HasElasticsearch;
 
     /**
      * Create the index

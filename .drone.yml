@@ -15,7 +15,7 @@ steps:
       ES_HOST: elasticsearch:9200
 
   - name: coverage
-    image: beamaustralia/php:7.3.6
+    image: beamaustralia/php:7.3.6-xdebug
     commands:
       - vendor/bin/php-coveralls -v -x clover.xml -o coveralls.json
     environment:

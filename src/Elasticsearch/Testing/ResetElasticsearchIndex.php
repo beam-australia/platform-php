@@ -8,6 +8,7 @@ use Beam\Elasticsearch\IndexManager;
  * Resets the elasticsearch index on each testcase
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
+ * @codeCoverageIgnore
  */
 trait ResetElasticsearchIndex
 {
