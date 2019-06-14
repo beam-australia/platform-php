@@ -50,10 +50,9 @@ class CreateIndex extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
-     * @throws Exception
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $response = $this->indexManager->create();
 
@@ -62,7 +61,5 @@ class CreateIndex extends Command
         } else {
             $this->error('Index creation failed.');
         }
-
-        return $response;
     }
 }

@@ -2,26 +2,12 @@
 
 namespace Beam\Elasticsearch\Commands;
 
-use Beam\Elasticsearch\Exceptions\IndexingException;
 use Beam\Elasticsearch\Indexing\Indexer;
 use Beam\Elasticsearch\Utilities;
-use Exception;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Cache;
 
-/**
- * Indexes indexable entities in Elasticsearch
- *
- * @author Andrew McLagan <andrew@beamaustralia.com.au>
- */
 class IndexDocuments extends Command
 {
-    /**
-     * Cache lock key
-     *
-     * @var string
-     */
-    public static $cacheLock = 'ej:es:indexing';
     /**
      * The name and signature of the console command.
      *
@@ -30,12 +16,14 @@ class IndexDocuments extends Command
     protected $signature = 'ej:es:index
                             {--chunk-size=250 : How many documents to index at once}
                             {--indexables=* : An array of indexables to index (none == all)}';
+
     /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Indexes indexables into Elasticsearch';
+
     /**
      * Elastic search index service
      *
@@ -94,20 +82,7 @@ class IndexDocuments extends Command
      */
     protected function index(string $indexable): void
     {
-        if (Cache::get(static::$cacheLock)) {
-            throw new IndexingException('Indexing operation already running.');
-        }
-
-        Cache::forever(static::$cacheLock, true);
-
-        try {
-            $this->queueIndexable($indexable);
-        } catch (Exception $exception) {
-            Cache::forget(static::$cacheLock);
-            throw $exception;
-        }
-
-        Cache::forget(static::$cacheLock);
+        $this->queueIndexable($indexable);
     }
 
     /**
@@ -120,6 +95,8 @@ class IndexDocuments extends Command
     {
         $query = (new $indexable)->getIndexingQuery();
 
-        $this->indexer->queue($query, $this->option('chunk-size'));
+        $chunkSize = (int) $this->option('chunk-size');
+
+        $this->indexer->queue($query, $chunkSize);
     }
 }
