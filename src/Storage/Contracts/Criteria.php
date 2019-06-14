@@ -6,6 +6,7 @@ namespace Beam\Storage\Contracts;
  * Criteria interface
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
+ * @codeCoverageIgnore
  */
 interface Criteria
 {
