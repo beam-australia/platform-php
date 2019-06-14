@@ -8,6 +8,7 @@ use Elasticsearch\Client;
  * Defines access to the elasticsearch client
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
+ * @codeCoverageIgnore
  */
 interface HasElasticsearch
 {
