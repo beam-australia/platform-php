@@ -7,11 +7,10 @@ services:
       - "9200:9200"
 
   php:
-    image: beamaustralia/php:7.3.6
+    image: beamaustralia/php:7.3.6-xdebug
     volumes:
       - "./:/var/www"
     depends_on:
       - elasticsearch
     environment:
       - ES_HOST=elasticsearch:9200
-      - TERM=xterm-256color

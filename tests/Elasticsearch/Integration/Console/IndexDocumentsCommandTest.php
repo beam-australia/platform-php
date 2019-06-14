@@ -2,13 +2,9 @@
 
 namespace Tests\Elasticsearch\Integration\Console;
 
-use Beam\Elasticsearch\Commands\IndexDocuments;
-use Beam\Elasticsearch\Exceptions\IndexingException;
+use Mockery;
 use Beam\Elasticsearch\Indexing\Indexer;
 use Beam\Elasticsearch\Utilities;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Cache;
-use Mockery;
 use Tests\Fixtures;
 use Tests\TestCase;
 
@@ -28,7 +24,7 @@ class IndexDocumentsCommandTest extends TestCase
 
         $this->app->instance(Indexer::class, $indexer);
 
-        Artisan::call('ej:es:index');
+        $this->artisan('ej:es:index');
     }
 
     /** @test */
@@ -45,7 +41,7 @@ class IndexDocumentsCommandTest extends TestCase
 
         $this->app->instance(Indexer::class, $indexer);
 
-        Artisan::call('ej:es:index', [
+        $this->artisan('ej:es:index', [
             '--indexables' => Fixtures\Family::class,
         ]);
     }
@@ -65,7 +61,7 @@ class IndexDocumentsCommandTest extends TestCase
 
         $this->app->instance(Indexer::class, $indexer->getMock());
 
-        Artisan::call('ej:es:index', [
+        $this->artisan('ej:es:index', [
             '--indexables' => Fixtures\Family::class,
         ]);
     }
@@ -82,7 +78,7 @@ class IndexDocumentsCommandTest extends TestCase
 
         $this->app->instance(Indexer::class, $indexer->getMock());
 
-        Artisan::call('ej:es:index');
+        $this->artisan('ej:es:index');
     }
 
     /** @test */
@@ -97,26 +93,8 @@ class IndexDocumentsCommandTest extends TestCase
 
         $this->app->instance(Indexer::class, $indexer->getMock());
 
-        Artisan::call('ej:es:index', [
+        $this->artisan('ej:es:index', [
             '--chunk-size' => 1983,
         ]);
-    }
-
-    /** @test */
-    public function only_one_command_runs_at_a_time()
-    {
-        $this->expectException(IndexingException::class);
-
-        Cache::forever(IndexDocuments::$cacheLock, true);
-
-        $indexer = Mockery::mock(Indexer::class)
-            ->shouldReceive('queue')
-            ->never();
-
-        $this->app->instance(Indexer::class, $indexer->getMock());
-
-        Artisan::call('ej:es:index');
-
-        Cache::forget(IndexDocuments::$cacheLock);
     }
 }

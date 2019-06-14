@@ -49,9 +49,9 @@ class DeleteIndex extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $response = $this->indexManager->delete();
 
@@ -60,7 +60,5 @@ class DeleteIndex extends Command
         } else {
             $this->error('Index deletion failed.');
         }
-
-        return $response;
     }
 }
