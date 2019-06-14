@@ -6,6 +6,7 @@ namespace Beam\Storage\Contracts;
  * Repository contract
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
+ * @codeCoverageIgnore
  */
 interface Repository
 {

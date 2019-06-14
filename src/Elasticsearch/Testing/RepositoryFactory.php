@@ -15,6 +15,7 @@ use Tests\Fixtures\Models;
  * Repository static factory - builds repository instances
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au
+ * @codeCoverageIgnore
  */
 class RepositoryFactory
 {

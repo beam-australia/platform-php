@@ -6,6 +6,7 @@ namespace Beam\Storage\Contracts;
  * Hydrator contract
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
+ * @codeCoverageIgnore
  */
 interface Hydrator
 {

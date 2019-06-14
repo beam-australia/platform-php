@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request as BaseRequest;
  * Request static factory - builds request instances with input
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au
+ * @codeCoverageIgnore
  */
 class RequestFactory
 {

@@ -6,6 +6,7 @@ namespace Beam\Storage\Contracts;
  * Adds response hydration functionality
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
+ * @codeCoverageIgnore
  */
 interface HydratesResults
 {

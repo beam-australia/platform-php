@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
  * Indexable within elasticsearch interface
  *
  * @author Andrew McLagan <andrew@beamaustralia.com.au>
+ * @codeCoverageIgnore
  */
 interface Indexable
 {

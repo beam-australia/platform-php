@@ -8,6 +8,7 @@ use Beam\Storage\CriteriaCollection;
  * Has criteria interface
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
+ * @codeCoverageIgnore
  */
 interface HasCriteria
 {
